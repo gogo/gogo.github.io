@@ -1,0 +1,25 @@
+# Dependencies
+markdown:         redcarpet
+pygments:         true
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            'gogoprotobuf'
+tagline:          'gadgets for protocol buffers in go'
+url:
+baseurl:
+
+author:
+  name:           'Walter Schulze'
+  url:            https://plus.google.com/u/0/+WalterSchulzeA
+
+paginate:         5
+
+github:
+  repo:           https://github.com/gogo/protobuf
+
+gems:
+  - jekyll-sitemap
+

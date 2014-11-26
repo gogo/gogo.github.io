@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>gogoprotobuf</title>
+ <link href="/atom.xml" rel="self"/>
+ <link href="/"/>
+ <updated>2014-11-26T09:49:06+02:00</updated>
+ <id></id>
+ <author>
+   <name>Walter Schulze</name>
+   <email></email>
+ </author>
+
+ 
+
+</feed>
