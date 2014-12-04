@@ -3,15 +3,13 @@ layout: page
 title: Documentation
 ---
 
-# Documentation
+The [README](http://github.com/gogo/protobuf/blob/master/README) has more information if you are getting started with go and protocol buffers.
 
-The [README](http://github.com/gogo/protobuf/source/browse/README) has more information if you are getting started with go and protocol buffers.
+Here is an [example.proto](https://github.com/gogo/protobuf/blob/master/test/example/example.proto) which uses most of the gogoprotobuf code generation plugins.
 
-Here is an [example.proto](https://github.com/gogo/protobuf/source/browse/test/example/example.proto) which uses most of the gogoprotobuf code generation plugins.
+Please also look at the example [Makefile](https://github.com/gogo/protobuf/blob/master/test/example/Makefile) which shows how to specify the `descriptor.proto` and `gogo.proto` in your proto_path
 
-Please also look at the example [Makefile](https://github.com/gogo/protobuf/source/browse/test/example/Makefile) which shows specify the descriptor.proto and gogo.proto in your proto_path
-
-Enjoy reading the documentation at [http://godoc.org/github.com/gogo/protobuf/gogoproto](http://godoc.org/github.com/gogo/protobuf/gogoproto) , which describes the extensions made to goprotobuf in more detail.
+The documentation at [http://godoc.org/github.com/gogo/protobuf/gogoproto](http://godoc.org/github.com/gogo/protobuf/gogoproto) describes the extensions made to goprotobuf in more detail.
 
 Also see [http://godoc.org/github.com/gogo/protobuf/plugin/](http://godoc.org/github.com/gogo/protobuf/plugin/) for documentation of each of the extensions which have their own plugins.
 
@@ -19,26 +17,24 @@ Also see [http://godoc.org/github.com/gogo/protobuf/plugin/](http://godoc.org/gi
 
 Generating a `Marshal`, `MarshalTo`, `Size` and `Unmarshal` method for a struct results in faster marshalling and unmarshalling than when using reflect.
 
-See BenchComparison for a comparison between reflect and generated code used for marshalling and unmarshalling.
+See [BenchComparison](http://gogo.github.io/bench) for a comparison between reflect and generated code used for marshalling and unmarshalling.
 
 <table>
 <tr><td><b>Name</b></td><td><b>Option</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Default</b></td></tr>
-<tr><td><a href="http://godoc.org/github.com/gogo/protobuf/plugin/marshalto">marshaler</a></td><td>Message</td><td>bool</td><td>if true, a Marshal and `MarshalTo` method is generated for the specific message</td><td>false</td></tr>
+<tr><td><a href="http://godoc.org/github.com/gogo/protobuf/plugin/marshalto">marshaler</a></td><td>Message</td><td>bool</td><td>if true, a Marshal and MarshalTo method is generated for the specific message</td><td>false</td></tr>
 <tr><td><a href="http://godoc.org/github.com/gogo/protobuf/plugin/size">sizer</a></td><td>Message</td><td>bool</td><td>if true, a Size method is generated for the specific message</td><td>false</td></tr>
 <tr><td><a href="http://godoc.org/github.com/gogo/protobuf/plugin/unmarshal">unmarshaler</a></td><td> Message </td><td> bool </td><td> if true, an Unmarshal method is generated for the specific message </td><td> false</td></tr>
-<tr><td><a href="http://godoc.org/github.com/gogo/protobuf/plugin/marshalto"> unsafe_marshaler</a> </td><td> Message </td><td> bool </td><td> if true, a Marshal and `MarshalTo` method is generated for the specific message. The generated code uses the unsafe package. </td><td> false</td></tr>
+<tr><td><a href="http://godoc.org/github.com/gogo/protobuf/plugin/marshalto"> unsafe_marshaler</a> </td><td> Message </td><td> bool </td><td> if true, a Marshal and MarshalTo method is generated for the specific message. The generated code uses the unsafe package. </td><td> false</td></tr>
 <tr><td><a href="http://godoc.org/github.com/gogo/protobuf/plugin/unmarshal">unsafe_unmarshaler</a></td><td> Message </td><td> bool </td><td> if true, an Unmarshal method is generated for the specific message. The generated code uses the unsafe package. </td><td> false</td></tr>
 </table>
 
-See a benchmark comparison [here](gogo.github.io/bench)
-
 # More Canonical Go Structures
 
-A lot of time working with a goprotobuf struct will lead you to a place where you create another struct that is easier to work with and then have a function to copy the values between the two structs.
+Lots of times working with a goprotobuf struct will lead you to a place where you create another struct that is easier to work with and then have a function to copy the values between the two structs.
 
-You might also find that basic structs that started their life as part of an API need to be sent over the wire. With gob, you could just send it. With goprotobuf, you need to make a parallel struct.
+You might also find that basic structs that started their life as part of an API need to be sent over the wire. With gob, you could just send it. With goprotobuf, you need to make a new struct.
 
-Gogoprotobuf tries to fix these problems with the nullable, embed, customtype and customname field extensions.
+`gogoprotobuf` tries to fix these problems with the nullable, embed, customtype and customname field extensions.
 
 <table>
 <tr><td><b>Name</b></td><td><b>Option</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Default</b></td></tr>
@@ -48,17 +44,17 @@ Gogoprotobuf tries to fix these problems with the nullable, embed, customtype an
 <tr><td><a href="http://godoc.org/github.com/gogo/protobuf/gogoproto"> customname</a> (beta) </td><td> Field </td><td> string </td><td> Changes the generated fieldname. This is especially useful when generated methods conflict with fieldnames. </td><td> goprotobuf field name </td></tr>
 </table>
 
-Warning about nullable: According to the Protocol Buffer specification, you should be able to tell whether a field is set or unset. With the option nullable=false this feature is lost, since your non-nullable fields will always be set. It can be seen as a layer on top of Protocol Buffers, where before and after marshaling all non-nullable fields are set and they cannot be unset.
+`Warning about nullable: according to the Protocol Buffer specification, you should be able to tell whether a field is set or unset. With the option nullable=false this feature is lost, since your non-nullable fields will always be set.` 
 
-Warning about customtype: It is your responsibility to test all cases of your marshaling, unmarshaling and size methods implemented for your custom type.
+`Warning about customtype: It is your responsibility to test all cases of your marshaling, unmarshaling and size methods implemented for your custom type.`
 
 # Goprotobuf Compatibility 
 
-Gogoprotobuf is compatible with Goprotobuf, because it is compatible with protocol buffers (see [#Tests Tests] below).
+Gogoprotobuf is compatible with Goprotobuf, because it is compatible with protocol buffers (see the section on tests below).
 
 Gogoprotobuf generates the same code as goprotobuf if no extensions are used.
 
-The enumprefix, getters and msgstringmethod extensions can be used to remove some of the unnecessary code generated by goprotobuf.
+The enumprefix, getters and stringer extensions can be used to remove some of the unnecessary code generated by goprotobuf.
 
 <table>
 <tr><td><b>Name</b></td><td><b>Option</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Default</b></td></tr>
@@ -66,7 +62,7 @@ The enumprefix, getters and msgstringmethod extensions can be used to remove som
 <tr><td> goproto_getters </td><td> Message </td><td> bool </td><td> if false, the message is generated without get methods, this is useful when you would rather want to use face </td><td> true </td></tr>
 <tr><td> goproto_stringer </td><td> Message </td><td> bool </td><td> if false, the message is generated without the default string method, this is useful for rather using stringer </td><td> true </td></tr>
 <tr><td> goproto_enum_stringer (experimental) </td><td> Enum </td><td> bool </td><td> if false, the enum is generated without the default string method, this is useful for rather using enum_stringer </td><td> true </td></tr>
-<tr><td> goproto_extensions_map (beta) </td><td> Message </td><td> bool </td><td> if false, the extensions field is generated as type `[]byte` instead of type `map[int32]proto.Extension` </td><td> true </td></tr>
+<tr><td> goproto_extensions_map (beta) </td><td> Message </td><td> bool </td><td> if false, the extensions field is generated as type []byte instead of type map[int32]proto.Extension </td><td> true </td></tr>
 </table>
 
 # Less Typing
@@ -102,11 +98,11 @@ Test and Benchmark generation is done with the following extensions:
 Other serialization formats like xml and json typically use reflect to marshal and unmarshal structured data.  Manipulating these structs into something other than the default Go requires editing tags.  The following extensions provide ways of editing these tags for the generated protobuf structs.
 
 <table>
-<tr><td><a href="https://github.com/gogo/protobuf/source/browse/test/tags/tags.proto">jsontag</a> (alpha) </td><td> Field </td><td> string </td><td> if set, the json tag value between the double quotes is replaced with this string </td><td> fieldname </td></tr>
-<tr><td><a href="https://github.com/gogo/protobuf/source/browse/test/tags/tags.proto">moretags</a> (experimental) </td><td> Field </td><td> string </td><td> if set, this string is appended to the tag string </td><td> empty </td></tr>
+<tr><td><a href="https://github.com/gogo/protobuf/blob/master/test/tags/tags.proto">jsontag</a> (alpha) </td><td> Field </td><td> string </td><td> if set, the json tag value between the double quotes is replaced with this string </td><td> fieldname </td></tr>
+<tr><td><a href="https://github.com/gogo/protobuf/blob/master/test/tags/tags.proto">moretags</a> (experimental) </td><td> Field </td><td> string </td><td> if set, this string is appended to the tag string </td><td> empty </td></tr>
 </table>
 
-[https://groups.google.com/forum/#!topic/gogoprotobuf/xmFnqAS6MIc Here is a longer explanation of jsontag and moretags]
+<a href="https://groups.google.com/forum/#!topic/gogoprotobuf/xmFnqAS6MIc">Here is a longer explanation of jsontag and moretags</a>
 
 # File Options 
 
@@ -157,4 +153,4 @@ to install the support library and protocol compiler.
   * The normal barrage of tests are run with: `make tests` 
   * An extra bombardment of tests are run with: `make testall`
   * Tests for compatibility with goprotobuf are handled by a different project [harmonytests](https://github.com/gogo/harmonytests), since it requires goprotobuf.
-  * Cross version tests are made with the help of docker.  You will need to install docker and then run `(cd dockertest && make run)`.  This will generate several docker files for each combinations of the go and protoc versions which are supported.
+  * Cross version tests are made with the help of docker.  You will need to install docker and then run `(cd dockertest && make run)`.  This will generate several docker files for each of the combinations of the go and protoc versions which are supported.

@@ -2,25 +2,19 @@
 layout: default
 ---
 
-<p>
-<h1>Soon to be the new home of gogoprotobuf</h1>
-</p>
+<h1>Overview</h1>
 
-<h2>Overview</h2>
-
-<p>
-gogoprotobuf is a fork of github.com/golang/protobuf with several extra features which fall into different categories:
+<i>gogoprotobuf</i> is a fork of <a href="https://github.com/golang/protobuf">golang/protobuf</a> with several extra features which fall into different categories:
 
 <ul>
   <li>Code Generation</li>
   <li>Libraries</li>
   <li>Tools</li>
 </ul>
-</p>
 
-<h2>Code Generation</h2>
+<h1>Code Generation</h1>
 
-gogoprotobuf uses the [https://developers.google.com/protocol-buffers/docs/proto#extensions Extensions] feature of Protocol Buffers to achieve:
+<i>gogoprotobuf</i> uses the <a href="https://developers.google.com/protocol-buffers/docs/proto#extensions">Extensions</a> feature of Protocol Buffers to achieve:
 
 <ul>
   <li>fast marshalling and unmarshalling.</li>
@@ -31,50 +25,42 @@ gogoprotobuf uses the [https://developers.google.com/protocol-buffers/docs/proto
   <li>other serialization formats</li>
 </ul>
 
-<h2>Libraries</h2>
+<h1>Libraries</h1>
 
 <ul>
-  <li>[http://godoc.org/code.google.com/p/gogoprotobuf/fieldpath fieldpath] creates and compiles fieldpaths for selective unmarshalling.</li>
-  <li>[http://godoc.org/code.google.com/p/gogoprotobuf/parser parser] parses a proto file with a fork-exec of protoc (does not work on windows).</li>
-  <li>[http://godoc.org/code.google.com/p/gogoprotobuf/io io] provides length delimited readers and writers.</li>
+  <li><a href="http://godoc.org/github.com/gogo/protobuf/fieldpath">fieldpath</a> creates and compiles fieldpaths for selective unmarshalling.</li>
+  <li><a href="http://godoc.org/github.com/gogo/protobuf/parser parser">parses</a> a proto file with a fork-exec of protoc (does not work on windows).</li>
+  <li><a href="http://godoc.org/github.com/gogo/protobuf/io">io</a> provides length delimited readers and writers.</li>
 </ul>
 
-<h2>Tools</h2>
+<h1>Tools</h1>
 
-Currently gogoprotobuf only has one extra tool, _pbpath_.
-_pbpath_, is a debugging tool, which allows you to stringify a marshaled protocol buffer on the command line.
-_pbpath_ does not have the protocol buffer definitions compiled in and makes extensive use of the _fieldpath_ library.
+Currently gogoprotobuf only has one extra tool, <a href="gogo.gitub.io/pbpath">pbpath</a>.
 
-A typical example:
-	cat marshalled.dat | pbpath -D=desc.out mypackage.MyMarshaledMessage
-
-The desc.out file can be created with protoc as such:
-	protoc --descriptor_set_out=desc.out --include_imports mymessage.proto
-
-<h2>Users</h2>
+<h1>Users</h1>
 
 These projects use gogoprotobuf:
 
 <ul>
-  <li>[https://github.com/goraft/raft goraft]</li>
-  <li>[https://www.spacemonkey.com/ spacemonkey] - [https://www.spacemonkey.com/blog/posts/go-space-monkey go-space-monkey-blog-post]</li>
-  <li>[http://bazil.org bazil]</li>
-  <li>[http://badoo.com badoo]</li>
-  <li>[https://github.com/mesos/mesos-go mesos-go]</li>
-  <li>[https://github.com/mozilla-services/heka heka]</li>
-  <li>[https://github.com/cockroachdb/cockroach cockroachdb]</li>
-  <li>[https://github.com/jbenet/go-ipfs go-ipfs]</li>
-  <li>[https://github.com/philhofer/rkive rkive-go]</li>
-  <li>[https://www.dropbox.com dropbox]</li>
+  <li><a href="https://github.com/goraft/raft">goraft</a></li>
+  <li><a href="https://www.spacemonkey.com/">spacemonkey</a> - <a href="https://www.spacemonkey.com/blog/posts/go-space-monkey">go-space-monkey-blog-post</a></li>
+  <li><a href="http://bazil.org">bazil</a></li>
+  <li><a href="http://badoo.com">badoo</a></li>
+  <li><a href="https://github.com/mesos/mesos-go">mesos-go</a></li>
+  <li><a href="https://github.com/mozilla-services/heka">heka</a></li>
+  <li><a href="https://github.com/cockroachdb/cockroach">cockroachdb</a></li>
+  <li><a href="https://github.com/jbenet/go-ipfs">go-ipfs</a></li>
+  <li><a href="https://github.com/philhofer/rkive">rkive-go</a></li>
+  <li><a href="https://www.dropbox.com">dropbox</a></li>
 </ul>
 
-Please lets us know if you are using gogoprotobuf by posting on our [https://groups.google.com/forum/#!topic/gogoprotobuf/Brw76BxmFpQ GoogleGroup].
+Please lets us know if you are using gogoprotobuf by posting on our <a href="https://groups.google.com/forum/#!topic/gogoprotobuf/Brw76BxmFpQ">GoogleGroup</a>.
 
-<h3>Mentioned at</h3>
+<h2>Mentioned at</h2>
 
 <ul>
-  <li>[http://gophercon.sourcegraph.com/post/83747547505/writing-a-high-performance-database-in-go gophercon]</li>
-  <li>[http://www.slideshare.net/albertstrasheim/serialization-in-go cloudflare]</li>
+  <li><a href="http://gophercon.sourcegraph.com/post/83747547505/writing-a-high-performance-database-in-go">gophercon</a></li>
+  <li><a href="http://www.slideshare.net/albertstrasheim/serialization-in-go">cloudflare</a></li>
 </ul>
 
-
+<a href="http://gogo.github.io/doc">more documentation...</a>
