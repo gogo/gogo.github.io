@@ -57,6 +57,12 @@
       
     
       
+        
+          <a class="sidebar-nav-item" href="/doc/">Documentation</a>
+        
+      
+    
+      
     
 
     <a class="sidebar-nav-item" href="https://github.com/gogo/protobuf">GitHub project</a>
@@ -82,7 +88,7 @@
 
           <h3 class="masthead-title">
             <a href="/" title="Home">gogoprotobuf</a>
-            <small>gadgets for protocol buffers in go</small>
+            <small>Protocol Buffers in Go with Gadgets</small>
           </h3>
         </div>
       </div>
@@ -90,7 +96,16 @@
       <div class="container content">
         <div class="page">
   <h1 class="page-title">Benchmark Comparison</h1>
-  <p>Benchmarks ran on Revision:  11c56be39364</p>
+  <h1>How to reproduce</h1>
+
+<p>For a comparison run:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">make bench
+</code></pre></div>
+<p>followed by <a href="http://code.google.com/p/go/source/browse/misc/benchcmp%20benchcmp">benchcmp</a> on the resulting files:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$GOROOT/misc/benchcmp $GOPATH/src/github.com/gogo/protobuf/test/mixbench/marshal.txt $GOPATH/src/github.com/gogo/protobuf/test/mixbench/marshaler.txt
+$GOROOT/misc/benchcmp $GOPATH/src/github.com/gogo/protobuf/test/mixbench/unmarshal.txt $GOPATH/src/github.com/gogo/protobuf/test/mixbench/unmarshaler.txt
+</code></pre></div>
+<p>Benchmarks ran on Revision:  11c56be39364</p>
 
 <p>June 2013</p>
 

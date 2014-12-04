@@ -10,7 +10,7 @@
 
   <title>
     
-      gogoprotobuf &middot; gadgets for protocol buffers in go
+      gogoprotobuf &middot; Protocol Buffers in Go with Gadgets
     
   </title>
 
@@ -57,6 +57,12 @@
       
     
       
+        
+          <a class="sidebar-nav-item" href="/doc/">Documentation</a>
+        
+      
+    
+      
     
 
     <a class="sidebar-nav-item" href="https://github.com/gogo/protobuf">GitHub project</a>
@@ -82,15 +88,88 @@
 
           <h3 class="masthead-title">
             <a href="/" title="Home">gogoprotobuf</a>
-            <small>gadgets for protocol buffers in go</small>
+            <small>Protocol Buffers in Go with Gadgets</small>
           </h3>
         </div>
       </div>
 
       <div class="container content">
         <p>
-Soon to be the new home of gogoprotobuf
+<h1>Soon to be the new home of gogoprotobuf</h1>
 </p>
+
+<h2>Overview</h2>
+
+<p>
+gogoprotobuf is a fork of github.com/golang/protobuf with several extra features which fall into different categories:
+
+<ul>
+  <li>Code Generation</li>
+  <li>Libraries</li>
+  <li>Tools</li>
+</ul>
+</p>
+
+<h2>Code Generation</h2>
+
+gogoprotobuf uses the [https://developers.google.com/protocol-buffers/docs/proto#extensions Extensions] feature of Protocol Buffers to achieve:
+
+<ul>
+  <li>fast marshalling and unmarshalling.</li>
+  <li>more canonical Go structures.</li>
+  <li>goprotobuf compatibility</li>
+  <li>less typing by optionally generating extra helper code.</li>
+  <li>peace of mind by optionally generating test and benchmark code.</li>
+  <li>other serialization formats</li>
+</ul>
+
+<h2>Libraries</h2>
+
+<ul>
+  <li>[http://godoc.org/code.google.com/p/gogoprotobuf/fieldpath fieldpath] creates and compiles fieldpaths for selective unmarshalling.</li>
+  <li>[http://godoc.org/code.google.com/p/gogoprotobuf/parser parser] parses a proto file with a fork-exec of protoc (does not work on windows).</li>
+  <li>[http://godoc.org/code.google.com/p/gogoprotobuf/io io] provides length delimited readers and writers.</li>
+</ul>
+
+<h2>Tools</h2>
+
+Currently gogoprotobuf only has one extra tool, _pbpath_.
+_pbpath_, is a debugging tool, which allows you to stringify a marshaled protocol buffer on the command line.
+_pbpath_ does not have the protocol buffer definitions compiled in and makes extensive use of the _fieldpath_ library.
+
+A typical example:
+	cat marshalled.dat | pbpath -D=desc.out mypackage.MyMarshaledMessage
+
+The desc.out file can be created with protoc as such:
+	protoc --descriptor_set_out=desc.out --include_imports mymessage.proto
+
+<h2>Users</h2>
+
+These projects use gogoprotobuf:
+
+<ul>
+  <li>[https://github.com/goraft/raft goraft]</li>
+  <li>[https://www.spacemonkey.com/ spacemonkey] - [https://www.spacemonkey.com/blog/posts/go-space-monkey go-space-monkey-blog-post]</li>
+  <li>[http://bazil.org bazil]</li>
+  <li>[http://badoo.com badoo]</li>
+  <li>[https://github.com/mesos/mesos-go mesos-go]</li>
+  <li>[https://github.com/mozilla-services/heka heka]</li>
+  <li>[https://github.com/cockroachdb/cockroach cockroachdb]</li>
+  <li>[https://github.com/jbenet/go-ipfs go-ipfs]</li>
+  <li>[https://github.com/philhofer/rkive rkive-go]</li>
+  <li>[https://www.dropbox.com dropbox]</li>
+</ul>
+
+Please lets us know if you are using gogoprotobuf by posting on our [https://groups.google.com/forum/#!topic/gogoprotobuf/Brw76BxmFpQ GoogleGroup].
+
+<h3>Mentioned at</h3>
+
+<ul>
+  <li>[http://gophercon.sourcegraph.com/post/83747547505/writing-a-high-performance-database-in-go gophercon]</li>
+  <li>[http://www.slideshare.net/albertstrasheim/serialization-in-go cloudflare]</li>
+</ul>
+
+
 
       </div>
     </div>

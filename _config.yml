@@ -7,7 +7,7 @@ permalink:        pretty
 
 # Setup
 title:            'gogoprotobuf'
-tagline:          'gadgets for protocol buffers in go'
+tagline:          'Protocol Buffers in Go with Gadgets'
 url:
 baseurl:
 
