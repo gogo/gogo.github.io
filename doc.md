@@ -63,6 +63,7 @@ The enumprefix, getters and stringer extensions can be used to remove some of th
 <tr><td> goproto_stringer </td><td> Message </td><td> bool </td><td> if false, the message is generated without the default string method, this is useful for rather using stringer </td><td> true </td></tr>
 <tr><td> goproto_enum_stringer (experimental) </td><td> Enum </td><td> bool </td><td> if false, the enum is generated without the default string method, this is useful for rather using enum_stringer </td><td> true </td></tr>
 <tr><td> goproto_extensions_map (beta) </td><td> Message </td><td> bool </td><td> if false, the extensions field is generated as type []byte instead of type map[int32]proto.Extension </td><td> true </td></tr>
+<tr><td> goproto_unrecognized (beta) </td><td> Message </td><td> bool </td><td>if false, XXX_unrecognized field is not generated. This is useful to reduce GC pressure at the cost of losing information about unrecognized fields. </td><td> true </td></tr>
 </table>
 
 # Less Typing
