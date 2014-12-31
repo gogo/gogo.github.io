@@ -137,7 +137,7 @@ Each of these are the same as their Message Option counterparts, except they app
 
 To install it, you must first have Go (at least version 1.2.2) installed (see [http://golang.org/doc/install](http://golang.org/doc/install)). 
 
-Next, install the standard protocol buffer implementation from [http://code.google.com/p/protobuf/](https://github.com/google/protobuf/); you must be running version 2.3, 2.4.1 or 2.5, some of the tests require version 2.5.
+Next, install the standard protocol buffer implementation from [https://github.com/google/protobuf](https://github.com/google/protobuf); you must be running version 2.3, 2.4.1, 2.5, 2.6 or 2.6.1.
 
 Finally run
 
