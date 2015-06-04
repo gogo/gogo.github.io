@@ -146,6 +146,7 @@
 <tr><td><a href="http://godoc.org/github.com/gogo/protobuf/gogoproto">embed</a></td><td> Field </td><td> bool </td><td> if true, the field is generated as an embedded field. </td><td> false </td></tr>
 <tr><td><a href="http://godoc.org/github.com/gogo/protobuf/gogoproto">customtype</a> </td><td> Field </td><td> string </td><td> It works with the Marshal and Unmarshal methods, to allow you to have your own types in your struct, but marshal to bytes. For example, custom.Uuid or custom.Fixed128 </td><td> goprotobuf type </td></tr>
 <tr><td><a href="http://godoc.org/github.com/gogo/protobuf/gogoproto"> customname</a> (beta) </td><td> Field </td><td> string </td><td> Changes the generated fieldname. This is especially useful when generated methods conflict with fieldnames. </td><td> goprotobuf field name </td></tr>
+<tr><td><a href="http://godoc.org/github.com/gogo/protobuf/gogoproto"> casttype</a> (beta) </td><td> Field </td><td> string </td><td> Changes the generated field type. It assumes that this type is castable to the original goprotobuf field type.  It currently does not support byte slices, structs or enums. </td><td> goprotobuf field type </td></tr>
 </table>
 
 <p><code>Warning about nullable: according to the Protocol Buffer specification, you should be able to tell whether a field is set or unset. With the option nullable=false this feature is lost, since your non-nullable fields will always be set.</code> </p>
@@ -162,6 +163,7 @@
 
 <table>
 <tr><td><b>Name</b></td><td><b>Option</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Default</b></td></tr>
+<tr><td> gogoproto_import </td><td> File </td><td> bool </td><td> if false, the generated code imports github.com/golang/protobuf/proto instead of github.com/gogo/protobuf/proto. </td><td> true </td></tr>
 <tr><td> goproto_enum_prefix </td><td> Enum </td><td> bool </td><td> if false, generates the enum constant names without the messagetype prefix </td><td> true </td></tr>
 <tr><td> goproto_getters </td><td> Message </td><td> bool </td><td> if false, the message is generated without get methods, this is useful when you would rather want to use face </td><td> true </td></tr>
 <tr><td> goproto_stringer </td><td> Message </td><td> bool </td><td> if false, the message is generated without the default string method, this is useful for rather using stringer </td><td> true </td></tr>
@@ -203,8 +205,8 @@
 <p>Other serialization formats like xml and json typically use reflect to marshal and unmarshal structured data.  Manipulating these structs into something other than the default Go requires editing tags.  The following extensions provide ways of editing these tags for the generated protobuf structs.</p>
 
 <table>
-<tr><td><a href="https://github.com/gogo/protobuf/blob/master/test/tags/tags.proto">jsontag</a> (alpha) </td><td> Field </td><td> string </td><td> if set, the json tag value between the double quotes is replaced with this string </td><td> fieldname </td></tr>
-<tr><td><a href="https://github.com/gogo/protobuf/blob/master/test/tags/tags.proto">moretags</a> (experimental) </td><td> Field </td><td> string </td><td> if set, this string is appended to the tag string </td><td> empty </td></tr>
+<tr><td><a href="https://github.com/gogo/protobuf/blob/master/test/tags/tags.proto">jsontag</a> (beta) </td><td> Field </td><td> string </td><td> if set, the json tag value between the double quotes is replaced with this string </td><td> fieldname </td></tr>
+<tr><td><a href="https://github.com/gogo/protobuf/blob/master/test/tags/tags.proto">moretags</a> (beta) </td><td> Field </td><td> string </td><td> if set, this string is appended to the tag string </td><td> empty </td></tr>
 </table>
 
 <p><a href="https://groups.google.com/forum/#!topic/gogoprotobuf/xmFnqAS6MIc">Here is a longer explanation of jsontag and moretags</a></p>
