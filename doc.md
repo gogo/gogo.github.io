@@ -155,5 +155,6 @@ to install the support library and protocol compiler.
 
   * The normal barrage of tests are run with: `make tests` 
   * An extra bombardment of tests are run with: `make testall`
-  * Tests for compatibility with goprotobuf are handled by a different project [harmonytests](https://github.com/gogo/harmonytests), since it requires goprotobuf.
-  * Cross version tests are made with the help of docker.  You will need to install docker and then run `(cd dockertest && make run)`.  This will generate several docker files for each of the combinations of the go and protoc versions which are supported.
+  * Tests for compatibility with [golang/protobuf](https://github.com/golang/protobuf) are handled by a different project [harmonytests](https://github.com/gogo/harmonytests), since it requires goprotobuf.
+  * Cross version tests are made with [Travis CI](https://travis-ci.org/gogo/protobuf).
+  * GRPC Tests are also handled by a different project [grpctests](https://github.com/gogo/grpctests), since it depends on a lot of grpc libraries.
