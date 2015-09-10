@@ -254,10 +254,11 @@ go get github.com/gogo/protobuf/gogoproto
 
 <ul>
 <li>The normal barrage of tests are run with: <code>make tests</code> </li>
-<li>An extra bombardment of tests are run with: <code>make testall</code></li>
+<li>A few weird tests: <code>make testall</code></li>
 <li>Tests for compatibility with <a href="https://github.com/golang/protobuf">golang/protobuf</a> are handled by a different project <a href="https://github.com/gogo/harmonytests">harmonytests</a>, since it requires goprotobuf.</li>
 <li>Cross version tests are made with <a href="https://travis-ci.org/gogo/protobuf">Travis CI</a>.</li>
 <li>GRPC Tests are also handled by a different project <a href="https://github.com/gogo/grpctests">grpctests</a>, since it depends on a lot of grpc libraries.</li>
+<li>Thanks to <a href="https://github.com/dvyukov/go-fuzz/">go-fuzz</a> we have proper <a href="https://github.com/gogo/fuzztests">fuzztests</a>.</li>
 </ul>
 
 </div>
