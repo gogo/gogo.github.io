@@ -112,7 +112,7 @@ Other serialization formats like xml and json typically use reflect to marshal a
 Each of the boolean message and enum extensions also have a file extension:
 
   * `marshaler_all`
-  * `size_all`
+  * `sizer_all`
   * `unmarshaler_all`
   * `unsafe_marshaler_all`
   * `unsafe_unmarshaler_all`
