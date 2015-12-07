@@ -34,7 +34,7 @@ Lots of times working with a goprotobuf struct will lead you to a place where yo
 
 You might also find that basic structs that started their life as part of an API need to be sent over the wire. With gob, you could just send it. With goprotobuf, you need to make a new struct.
 
-`gogoprotobuf` tries to fix these problems with the nullable, embed, customtype and customname field extensions.
+`gogoprotobuf` tries to fix these problems with the nullable, embed, customtype, customname, casttype, castkey and castvalue field extensions.
 
 <table>
 <tr><td><b>Name</b></td><td><b>Option</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Default</b></td></tr>
@@ -43,6 +43,8 @@ You might also find that basic structs that started their life as part of an API
 <tr><td><a href="http://godoc.org/github.com/gogo/protobuf/gogoproto">customtype</a> </td><td> Field </td><td> string </td><td> It works with the Marshal and Unmarshal methods, to allow you to have your own types in your struct, but marshal to bytes. For example, custom.Uuid or custom.Fixed128 </td><td> goprotobuf type </td></tr>
 <tr><td><a href="http://godoc.org/github.com/gogo/protobuf/gogoproto"> customname</a> (beta) </td><td> Field </td><td> string </td><td> Changes the generated fieldname. This is especially useful when generated methods conflict with fieldnames. </td><td> goprotobuf field name </td></tr>
 <tr><td><a href="http://godoc.org/github.com/gogo/protobuf/gogoproto"> casttype</a> (beta) </td><td> Field </td><td> string </td><td> Changes the generated field type. It assumes that this type is castable to the original goprotobuf field type.  It currently does not support maps, structs or enums. </td><td> goprotobuf field type </td></tr>
+<tr><td><a href="http://godoc.org/github.com/gogo/protobuf/gogoproto"> castkey </a> (beta) </td><td> Field </td><td> string </td><td> Changes the generated fieldtype for a map key.  All generated code assumes that this type is castable to the protocol buffer field type.  Only supported on maps. </td><td> goprotobuf field type </td></tr>
+<tr><td><a href="http://godoc.org/github.com/gogo/protobuf/gogoproto"> castvalue </a> (beta) </td><td> Field </td><td> string </td><td> Changes the generated fieldtype for a map value.  All generated code assumes that this type is castable to the protocol buffer field type.  Only supported on maps. </td><td> goprotobuf field type </td></tr>
 </table>
 
 `Warning about nullable: according to the Protocol Buffer specification, you should be able to tell whether a field is set or unset. With the option nullable=false this feature is lost, since your non-nullable fields will always be set.` 
