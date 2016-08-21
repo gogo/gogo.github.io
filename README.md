@@ -1,3 +1,3 @@
-gogoprotobuf documentation website 
+[deprecated] gogoprotobuf documentation website 
 
-[gogo.github.io](gogo.github.io)
+See gogoprotobuf [Readme.md](https://github.com/gogo/protobuf)
